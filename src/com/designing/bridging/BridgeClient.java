@@ -1,7 +1,7 @@
 package com.designing.bridging;
 
 /**
- * 桥接模式
+ * 设计模式  -> 桥接模式
  */
 public class BridgeClient {
     public static void main(String[] args) {
