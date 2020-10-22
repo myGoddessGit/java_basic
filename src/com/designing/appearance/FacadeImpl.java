@@ -1,4 +1,4 @@
-package com.designing.appearce;
+package com.designing.appearance;
 
 /**
  * 接口调用子系统的具体实现

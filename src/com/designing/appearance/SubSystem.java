@@ -1,4 +1,4 @@
-package com.designing.appearce;
+package com.designing.appearance;
 
 public class SubSystem {
     public static class SubSystemA{
