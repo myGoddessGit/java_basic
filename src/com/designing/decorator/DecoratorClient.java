@@ -7,6 +7,8 @@ package com.designing.decorator;
  * 不使用继承
  * 动态扩展
  * 装饰者模式提供比继承更多的灵活性
+ *
+ * 动态的给对象添加新的功能
  */
 public class DecoratorClient {
     public static void main(String[] args) {

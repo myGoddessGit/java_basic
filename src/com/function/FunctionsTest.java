@@ -33,6 +33,24 @@ public class FunctionsTest {
             Integer n = sup.get();
             list.add(n);
         }
+
         return list;
+    }
+
+    private static class A<T> {
+        static <T>void method(List<? extends T> holder , T arg){
+
+            T t = holder.get(0);
+        }
+
+        static <T>void method2(List<? super T> holder, T arg){
+            holder.add(arg);
+
+        }
+
+        public static void main(String[] args) {
+            A<Number> a = new A<Number>();
+            method(new ArrayList<>(), "");
+        }
     }
 }

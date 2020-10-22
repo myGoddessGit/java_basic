@@ -2,6 +2,12 @@ package com.designing.prototype;
 
 import java.io.*;
 
+/**
+ *
+ * 设计模式 -> 原型模式
+ *
+ * 通过复制现有的实例来创建新的实例
+ */
 public class Prototype implements Cloneable, Serializable {
 
     private static final long serialVersionUID = 1L;

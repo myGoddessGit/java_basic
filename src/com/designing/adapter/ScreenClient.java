@@ -1,6 +1,11 @@
 package com.designing.adapter;
 
-public class Screen {
+/**
+ * 设计模式  -> 适配器模式
+ *
+ * 将一个类的方法接口转换成希望的另一个接口
+ */
+public class ScreenClient {
     public static void main(String[] args) {
         System.out.println("---------第一种适配器--------");
         Vga vga = new TypeCToVga_Class();
