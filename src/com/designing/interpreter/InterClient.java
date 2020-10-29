@@ -2,6 +2,8 @@ package com.designing.interpreter;
 
 /**
  * 设计模式  -> 解释器模式
+ *
+ * 给定一个语言  定义它的文法的一种表示  并定义一个解释器
  */
 public class InterClient {
 

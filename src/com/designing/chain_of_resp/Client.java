@@ -2,6 +2,8 @@ package com.designing.chain_of_resp;
 
 /**
  *  设计模式 -> 责任链模式
+ *
+ *  请求发送者和接收者之间解耦  使得多个对象都有机会处理这个请求
  */
 public class Client {
     public static void main(String[] args) {

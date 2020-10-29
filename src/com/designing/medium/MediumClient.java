@@ -2,6 +2,9 @@ package com.designing.medium;
 
 /**
  * 设计模式  -> 中介者模式
+ *
+ * 用一个中介对象来封装一系列的对象交互
+ *
  */
 public class MediumClient {
     public static void main(String[] args) {

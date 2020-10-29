@@ -5,6 +5,9 @@ class Apple(var name : String)
 object FanXing{
     @JvmStatic
     fun main(args : Array<String>){
+        /**
+         * 星型投射
+         */
         val a1 :A<*> = A(12, "String", Apple("苹果"))
         val a2 :A<Any?> = A(12, "String", Apple("苹果"))
         val apple = a1.t3  // 参数类型为Any

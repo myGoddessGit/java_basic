@@ -1,5 +1,12 @@
 package com.designing.flyweight;
 
+/**
+ * 设计模式  -> 享元模式
+ *
+ * 通过技术共享有效的支持大量细粒度的对象
+ *
+ */
+
 public class Client {
     public static void main(String[] args) {
         FlyweightFactory factory = new FlyweightFactory();

@@ -2,6 +2,10 @@ package com.designing.observer;
 
 /**
  * 当对象存在一对关系时, 使用观察者模式
+ *
+ * 观察者模式
+ *
+ * 对象存在一对多的依赖关系
  */
 public class ObserverClient {
     public static void main(String[] args) {

@@ -2,6 +2,8 @@ package com.designing.memento;
 
 /**
  * 设计模式 -> 备忘录模式
+ *
+ * 在不破坏封装性的前提下  保存对象的内部状态
  */
 public class Client {
     public static void main(String[] args) {
