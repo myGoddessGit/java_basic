@@ -61,5 +61,34 @@ public class JavaIO {
      *
      *
      * ObjectInputStream 和 ObjectOutputStream 是对象的输入输出流  一般用于对象序列化
+     *
+     * 字符流 => Reader 和  Writer
+     * Reader => {
+     *     BufferedReader 缓冲区
+     *     PipedReader 管道数据
+     *     StringReader 字符串
+     *     CharArrayReader 字符数组
+     *     InputStreamReader 字节流转为字符流
+     *     FilterReader 自定义过滤输入字符流
+     * }
+     *
+     * Writer => {
+     *     BufferedWriter 缓冲区
+     *     PipedWriter 管道数据
+     *     StringWriter 字符串
+     *     CharArrayWriter 字符数组
+     *     OutputStreamWriter 字节流转为字符流
+     *     FilterWriter 自定义过滤输出字符流
+     *     PrintWriter 打印流
+     * }
+     *
+     *
+     * 字节流 和 字符流
+     * 相同点 : 字节流和字符流有有read() write() flush() close()
+     * 不同点 :
+     * 数据类型 => {字节流的数据是字节(二进制对象) 核心类 是 InputStream 和 OutputStream
+     *              字符流的数据是字符 一个字符等于两个字节 核心类是 Reader类 和 Writer类}
+     * 缓冲区 字节流在操作时本身不会用到缓存区(内存) 是文件直接操作的
+     *        字符流在操作时是使用了缓冲区 通过缓冲区再操作文件
      */
 }

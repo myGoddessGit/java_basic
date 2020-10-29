@@ -2,6 +2,7 @@ package com.data_structures.sparsearray;
 
 /**
  * Author by MyGoddess on 2020/10/27
+ * 稀疏数组
  */
 public class SparseArr {
     public static void main(String[] args) {

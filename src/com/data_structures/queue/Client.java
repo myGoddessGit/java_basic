@@ -1,5 +1,20 @@
 package com.data_structures.queue;
 
+
+/**
+ * 队列
+ *
+ * 队列是元素的集合，其包含了两个基本操作：入队（enqueue） 操作可以用于将元素插入到队列中，而出队（dequeue）操作则是将元素从队列中移除。
+ *
+ * 遵循先入先出原则 (FIFO)。
+ *
+ * 时间复杂度：
+ *
+ * 索引: O(n)
+ * 搜索: O(n)
+ * 插入: O(1)
+ * 移除: O(1)
+ */
 public class Client {
     public static void main(String[] args) {
         /**
