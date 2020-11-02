@@ -6,7 +6,15 @@ import com.data_structures.ArrayUtil;
  * Author by MyGoddess on 2020/10/29
  *
  * 快速排序
+ *
  * 快速排序是一种交换排序
+ *
+ * 通过一趟排序将要排序的数据分割成独立两部分 其中一部分的所有数据
+ * 都比另外一部分的所有数据都要小 然后再按照此方法对这两部分数据分别进行快速排序
+ * 整个过程可以递归进行 以此达到整个数据变成有序序列
+ *
+ * 时间平均复杂度 O(Nlog2N)
+ * 空间复杂度 O(Nlog2N)
  */
 public class QuickSort {
 
@@ -33,6 +41,11 @@ public class QuickSort {
         return left;
     }
 
+    /**
+     * @param list 排序的数组
+     * @param left 数组前指针
+     * @param right 数组后指针
+     */
     private static void quickSort(int[] list, int left, int right){
         // 左下标一定小于右下标 否则数组越界
         if (left < right){
@@ -41,7 +54,7 @@ public class QuickSort {
             quickSort(list, left, base - 1);
             quickSort(list, base + 1, right);
         }
-        ArrayUtil.getArrayString(list, 0, list.length - 1);
+       // ArrayUtil.getArrayString(list, 0, list.length - 1);
     }
 
     public static void main(String[] args) {
@@ -57,6 +70,16 @@ public class QuickSort {
         a[8] = 99;
         a[9] = 11;
         a[10] = 0;
-        quickSort(a, 3, 9);
+        System.out.println(arrayToString(a, "排序前"));
+        quickSort(a, 0, 10);
+        System.out.println(arrayToString(a, "排序后"));
+    }
+
+    private static String arrayToString(int[] arr, String flag){
+        StringBuilder str = new StringBuilder("数组为(" + flag + "): ");
+        for (int a : arr){
+            str.append(a).append("\t");
+        }
+        return str.toString();
     }
 }

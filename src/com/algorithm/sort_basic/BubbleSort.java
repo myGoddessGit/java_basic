@@ -7,10 +7,13 @@ import com.data_structures.ArrayUtil;
  * Author by MyGoddess on 2020/10/29
  *
  * 冒泡排序
+ *
  * 冒泡排序是一种交换排序
+ *
  * 交换排序 两两比较待排序的关键字 并交换不满足次序要求的那对数 直到整个表都满足次序要求为止
  *
  * 时间复杂度 (O(N2) (平均时间复杂度)
+ *
  * 数据越接近正序 性能越好
  */
 public class BubbleSort {
