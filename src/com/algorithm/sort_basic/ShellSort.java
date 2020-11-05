@@ -24,6 +24,7 @@ import java.util.Arrays;
 public class ShellSort {
     public static void main(String[] args) {
         int[] ins = {2,3,5,1,23,6,78,34,23,4,5,78,34,65,32,65,76,32,76,1,9};
+        System.out.println("希尔排序");
         for (int i : sort(ins)){
             System.out.println(i + "\t");
         }

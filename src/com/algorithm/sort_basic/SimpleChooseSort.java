@@ -21,6 +21,7 @@ import java.util.Arrays;
 public class SimpleChooseSort {
     public static void main(String[] args) {
         int[] a = {10, 5, 7, 8, 4, 3, 6, 1, 2, 9};
+        System.out.println("简单选择排序");
         System.out.println("排序前: " + Arrays.toString(a));
         sort(a);
         System.out.println("排序后: " + Arrays.toString(a));

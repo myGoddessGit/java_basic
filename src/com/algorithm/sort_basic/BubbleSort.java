@@ -78,6 +78,7 @@ public class BubbleSort {
         a[8] = 99;
         a[9] = 11;
         //bubbleSort(a);
+        System.out.println("冒泡排序");
         bubbleSortEx(a);
     }
 }

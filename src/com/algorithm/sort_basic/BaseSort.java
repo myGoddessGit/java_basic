@@ -20,6 +20,7 @@ import java.util.Arrays;
  */
 public class BaseSort {
     public static void main(String[] args) {
+        System.out.println("基数排序");
         int[] arr = { 321, 1234, 543, 324, 24, 960, 540, 672, 783, 1000 };
         radixSort(arr);
     }

@@ -25,6 +25,7 @@ import java.util.Arrays;
  */
 public class MergeSort {
     public static void main(String[] args) {
+        System.out.println("归并排序");
         int[] ins = {2,3,5,1,23,6,78,34,23,4,5,78,34,65,32,65,76,32,76,1,9};
         sort(ins);
     }

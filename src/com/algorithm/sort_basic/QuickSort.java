@@ -70,6 +70,7 @@ public class QuickSort {
         a[8] = 99;
         a[9] = 11;
         a[10] = 0;
+        System.out.println("快速排序");
         System.out.println(arrayToString(a, "排序前"));
         quickSort(a, 0, 10);
         System.out.println(arrayToString(a, "排序后"));

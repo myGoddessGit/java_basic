@@ -23,6 +23,7 @@ public class HeapSort {
 
     public static void main(String[] args) {
         int[] a = {10, 5, 7, 8, 4, 3, 6, 1, 2, 9};
+        System.out.println("堆排序");
         heapSort(a);
     }
 

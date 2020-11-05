@@ -26,6 +26,7 @@ public class InsertSort {
 //            System.out.print(i + "\t");
 //        }
         int[] a = { 38,65,97,76,13,27,49 };
+        System.out.println("插入排序");
         insertSort(a);
         System.out.println(Arrays.toString(a));
     }
