@@ -4,6 +4,17 @@ import java.util.ArrayList;
 import java.util.Vector;
 import java.util.concurrent.locks.ReentrantLock;
 
+
+/**
+ * 死锁产生的条件
+ * 互斥使用
+ *
+ * 不可抢占
+ *
+ * 请求和保持
+ *
+ * 循环等待
+ */
 public class JavaLock {
 
     /**

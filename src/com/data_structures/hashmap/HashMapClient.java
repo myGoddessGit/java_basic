@@ -28,7 +28,7 @@ public class HashMapClient {
         }
 
         /**
-         * 2.
+         * 2. 采用Iterator把HashMap中数据放到迭代器中 然后用while循环把迭代器中的数据读出来
          */
         System.out.println("通过Map.entrySet使用iterator遍历key和value: ");
         Iterator<Map.Entry<String, String>> it = map.entrySet().iterator();
@@ -38,14 +38,17 @@ public class HashMapClient {
         }
 
         /**
-         * 3.
+         * 3. 采用for循环遍历HashMap中的数据 使用方便 (数据量大时非常耗性能)
          */
         System.out.println("通过Map.entrySet遍历key和value");
         for (Map.Entry<String, String> entry : map.entrySet()){
             System.out.println("key= " + entry.getKey() + " and value= " + entry.getValue());
         }
 
-        System.out.println("通过Map,values()遍历所有的value, 但不能遍历key");
+        /**
+         * 4. 只能得到key
+         */
+        System.out.println("通过Map.values()遍历所有的value, 但不能遍历key");
         for (String v : map.values()){
             System.out.println("value= " + v);
         }
