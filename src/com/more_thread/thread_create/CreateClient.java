@@ -41,4 +41,41 @@ public class CreateClient {
      * sleep 不需要被唤醒 wait 需要 (用notify唤醒)
      */
 
+    /**
+     * java Thread 方法
+     *
+     * 1. run() -> 线程的执行体
+     *
+     * 2. start() -> 线程的启动方法
+     *
+     * 3. currentThread() -> 返回当前正在执行的线程对象的应用
+     *
+     * 4. setName() -> 设置线程名称
+     *
+     * 5. getName() -> 获取线程名称
+     *
+     * 6. setPriority() -> 设置线程优先级(java 中的线程优先级的范围是[0, 10]  一般
+     *  来说 高优先级的线程在运行时会具有优先权 可以通过thread.setPriority(Thread.MAX_PRIORITY)的方法设置 默认优先级为5)
+     *
+     * 7. setDaemon() -> 设置线程为守护线程
+     *
+     * 8. isDaemon() -> 判断线程是否为守护线程
+     *
+     * 9. isAlive() -> 判断线程是否启动
+     *
+     * 10. interrupt -> 中断另一个线程的运行状态
+     *
+     * 11. interrupted() -> 测试当前线程是否已中断
+     *
+     * 12. join() -> 可以使一个线程强制运行 线程强制运行期间 其他线程无法运行 必须等待此线程完成之后才可以继续执行
+     *
+     * 13. sleep() -> 静态方法 将当前正在执行的线程休眠
+     *
+     * 14. yield() -> 静态方法 将当前正在执行的线程暂停 让其他线程执行
+     */
+
+    public static void main(String[] args) {
+        System.out.println(~(-100));
+    }
+
 }
