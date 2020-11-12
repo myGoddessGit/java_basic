@@ -1,6 +1,8 @@
 package com.reflex.dynamicproxy;
 
 
+import net.sf.json.JSONObject;
+
 /**
  * Author by MyGoddess on 2020/11/5
  *
@@ -17,5 +19,10 @@ public class RealSubject implements Subject {
     public String bye() {
         System.out.println("Goodbye");
         return "Over";
+    }
+
+    void test(){
+        JSONObject object = new JSONObject();
+        String a = object.getString("a");
     }
 }
