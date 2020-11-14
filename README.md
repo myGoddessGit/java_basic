@@ -1,5 +1,7 @@
 com.algorithm -> 算法
 
+com.annotation -> 注解
+
 com.collection -> 集合
 
 com.data_structures -> 数据结构
@@ -25,8 +27,29 @@ singleton -> 单例模式
 state -> 状态模式
 strategy -> 策略模式
 
+com.generic_paradigm -> 泛型
+
+com.io -> javaIO
+       stream -> java Stream(数据源的元素队列并支持聚合操作)
+
+com.jdk8 -> jdk8特性
+
+com.keyword -> java关键字
+
 com.lock -> 锁
 
 com.more_thread -> 多线程
 
-com.kotlins -> kotlin
+com.kotlins -> kotlin相关
+
+com.os -> 操作系统相关
+
+com.reflex -> 操作系统相关
+
+com.serialize -> java序列化
+
+com.spring -> spring相关
+
+
+
+

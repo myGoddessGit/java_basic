@@ -91,4 +91,8 @@ public class JavaIO {
      * 缓冲区 字节流在操作时本身不会用到缓存区(内存) 是文件直接操作的
      *        字符流在操作时是使用了缓冲区 通过缓冲区再操作文件
      */
+
+    public static void main(String[] args) {
+        System.out.println(~(-9));
+    }
 }
