@@ -9,9 +9,10 @@ object CreateThread_impl {
     fun main(args : Array<String>){
         val tA = Thread(MyThread(), "Runnable 线程-A")
         val tB = Thread(MyThread(), "Runnable 线程-B")
-
+        val tC = Thread(MyThread(), "Runnable 线程-C")
         tA.start()
         tB.start()
+        tC.start()
     }
 
     class MyThread : Runnable {

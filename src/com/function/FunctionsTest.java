@@ -48,7 +48,7 @@ public class FunctionsTest {
 
         }
 
-        public static void main(String[] args) {
+        public static void main(String... args) {
             A<Number> a = new A<Number>();
             method(new ArrayList<>(), "");
         }
