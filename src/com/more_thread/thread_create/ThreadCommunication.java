@@ -27,13 +27,13 @@ public class ThreadCommunication {
 
         @Override
         public void run() {
-            while (true){
-                synchronized (queue){
-                    while (queue.size() == 0){
+            do {
+                synchronized (queue) {
+                    while (queue.size() == 0) {
                         try {
                             System.out.println("队列空, 等待数据");
                             queue.wait();
-                        } catch (InterruptedException e){
+                        } catch (InterruptedException e) {
                             e.printStackTrace();
                             queue.notifyAll();
                         }
@@ -42,13 +42,13 @@ public class ThreadCommunication {
                     queue.notifyAll();
                     try {
                         Thread.sleep(500);
-                    } catch (InterruptedException e){
+                    } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
                     System.out.println(Thread.currentThread().getName() + " 从队列取走一个元素, 队列当前有: "
-                     + queue.size() + "个元素");
+                            + queue.size() + "个元素");
                 }
-            }
+            } while (true);
         }
     }
 
@@ -59,13 +59,13 @@ public class ThreadCommunication {
 
         @Override
         public void run() {
-            while (true){
-                synchronized (queue){
-                    while (queue.size() == QUEUE_SIZE){
+            do {
+                synchronized (queue) {
+                    while (queue.size() == QUEUE_SIZE) {
                         try {
                             System.out.println("队列满, 等待有空余空间");
                             queue.wait();
-                        } catch (InterruptedException e){
+                        } catch (InterruptedException e) {
                             e.printStackTrace();
                             queue.notifyAll();
                         }
@@ -74,13 +74,13 @@ public class ThreadCommunication {
                     queue.notifyAll();
                     try {
                         sleep(500);
-                    } catch (InterruptedException e){
+                    } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
                     System.out.println(Thread.currentThread().getName() + " 向队列中插入一个元素, 队列当前有: "
-                     + queue.size() + " 个元素");
+                            + queue.size() + " 个元素");
                 }
-            }
+            } while (true);
         }
     }
 }

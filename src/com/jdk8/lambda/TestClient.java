@@ -47,7 +47,7 @@ public class TestClient {
 
         List<Integer> squareList = numbers.stream()
                 .map(i -> i * i)
-                .sorted((x, y) -> y -x)
+                .sorted((x, y) -> y - x)
                 .collect(Collectors.toList());
         squareList.forEach(num -> {
             num++;

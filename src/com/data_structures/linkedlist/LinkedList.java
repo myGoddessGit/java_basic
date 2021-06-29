@@ -21,7 +21,7 @@ public class LinkedList {
     static class ListNode<E>{
         E value;
         ListNode<E> next; // 指向后继节点
-        ListNode<E> head;
+        ListNode<E> head; // 指向前驱节点
         public ListNode(E head, E next) {
 
         }

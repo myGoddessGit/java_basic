@@ -3,10 +3,7 @@ package com.reflex;
 import com.designing.medium.UserImpl;
 
 import java.lang.reflect.*;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Author by MyGoddess on 2020/11/4
@@ -280,9 +277,13 @@ public class Reflex {
 
         Class listClass = strList.getClass(); // 得到strList对象的字节码对象
         Method m = listClass.getMethod("add", Object.class);
-        m.invoke(strList, 100);
-        for (Object obj : strList){
-            System.out.println(obj);
+        m.invoke(strList, new User("uzi", 23, User.Sex.MAN));
+//        for (Object obj : strList){
+//            System.out.println(obj);
+//        }
+        Iterator iterator = strList.iterator();
+        while (iterator.hasNext()){
+            System.out.println(iterator.next());
         }
     }
 

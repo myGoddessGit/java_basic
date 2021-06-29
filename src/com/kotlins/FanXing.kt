@@ -1,5 +1,7 @@
 package com.kotlins
 
+import javax.xml.bind.JAXBElement
+
 class A<T> (val t : T, val t2 : T, val t3 : T)
 class Apple(var name : String)
 object FanXing{
@@ -19,5 +21,20 @@ object FanXing{
         for (item in l){
             println(item)
         }
+        val fruits = listOf("banana", "avocado", "apple", "kiwifruit")
+        fruits.filter { it.startsWith("a") }
+                .sortedBy { it }
+                .map { it.toUpperCase() }
+                .forEach { println(it) }
+    }
+}
+
+class C {
+    override fun equals(other: Any?): Boolean {
+        return super.equals(other)
+    }
+
+    fun test(){
+
     }
 }

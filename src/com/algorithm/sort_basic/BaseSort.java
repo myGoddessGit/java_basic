@@ -1,7 +1,6 @@
 package com.algorithm.sort_basic;
 
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.*;
 
 /**
  * Author by MyGoddess on 2020/11/2
@@ -47,9 +46,9 @@ public class BaseSort {
 
     private static void bucketSort(int[] arr, int digit){
         int base = (int) Math.pow(10, digit);
-        ArrayList<ArrayList<Integer>> buckets = new ArrayList<ArrayList<Integer>>();
+        List<List<Integer>> buckets = new ArrayList<>();
         for (int i = 0; i < 10; i++){ // 十进制 只有0 - 9 这是个数 需要准备10个桶
-            buckets.add(new ArrayList<Integer>());
+            buckets.add(new ArrayList<>());
         }
         // sort
         for (int i : arr){
@@ -58,7 +57,7 @@ public class BaseSort {
         }
         // output : copy back to arr
         int index = 0;
-        for (ArrayList<Integer> bucket : buckets){
+        for (List<Integer> bucket : buckets){
             for (int i : bucket){
                 arr[index++] = i;
             }

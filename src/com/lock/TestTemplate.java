@@ -8,12 +8,15 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 
+/**
+ * 1秒 = 10 ^ 9纳秒
+ */
 public abstract class TestTemplate {
     private String id;
     protected int round;
     private int threadNum;
     protected long countValue;
-    protected AtomicLong countValueAtomic = new AtomicLong(0);
+    protected AtomicLong countValueAtomic = new AtomicLong(0L);
     protected int[] preInit;
     protected int index;
     protected AtomicInteger indexAtomic = new AtomicInteger(0);
@@ -51,9 +54,7 @@ public abstract class TestTemplate {
                     }
                     try {
                         cb.await();
-                    } catch (InterruptedException e){
-                        e.printStackTrace();
-                    } catch (BrokenBarrierException e){
+                    } catch (InterruptedException | BrokenBarrierException e){
                         e.printStackTrace();
                     }
                 }
@@ -65,9 +66,7 @@ public abstract class TestTemplate {
                     try {
                         // 每个线程执行完同步方法后就等待
                         cb.await();
-                    } catch (InterruptedException e){
-                        e.printStackTrace();
-                    } catch (BrokenBarrierException e){
+                    } catch (InterruptedException | BrokenBarrierException e){
                         e.printStackTrace();
                     }
                 }
@@ -76,9 +75,8 @@ public abstract class TestTemplate {
         try {
             // 当前统计线程也有wait 所以CyclicBarrier的初始值是threadNum * 2 + 1
             cb.await();
-        } catch (InterruptedException e){
-            e.printStackTrace();
-        } catch (BrokenBarrierException e){
+            System.out.println("等待等待。。。");
+        } catch (InterruptedException | BrokenBarrierException e){
             e.printStackTrace();
         }
         // 所有线程执行完成之后 才会跑到这一步

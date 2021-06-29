@@ -1,7 +1,11 @@
 package com.lock;
 
+import com.sun.xml.internal.ws.org.objectweb.asm.ClassAdapter;
+import org.openjdk.jol.info.ClassLayout;
+
 import java.util.ArrayList;
 import java.util.Vector;
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.ReentrantLock;
 
 
@@ -14,6 +18,10 @@ import java.util.concurrent.locks.ReentrantLock;
  * 请求和保持
  *
  * 循环等待
+ *
+ *
+ * ReentrantReadWriteLock 典型的共享锁 (锁可以被多个线程持有, 如果一个线程对数据加上共享锁后，其他线程只能
+ * 对数据再加上共享锁 获得共享锁的线程只能读数据 不能修改数据)
  */
 public class JavaLock {
 
@@ -140,6 +148,20 @@ public class JavaLock {
      *
      * ReentrantLock 传入的都是独享锁
      *
+     *
+     *
+     * 独占锁（exclusive），保证只有一条线程执行，比如 ReentrantLock、AtomicInteger。
+     * 共享锁（shared），允许多个线程同时执行，比如 CountDownLatch、Semaphore。
+     * 同时实现独占和共享，比如 ReentrantReadWriteLock，允许多个线程同时执行读操作，只允许一条线程执行写操作。
+     *
+     *
+     * tryRelease详细流程 =>
+     * 1.调用 tryRelease() 释放共享资源，即 state=0，然后唤醒没有被中断的后驱节点的线程;
+     *
+     * 2.被唤醒的线程自旋，判断自旋节点的前驱节点是不是头结点，是否已经释放共享资源（即 state=0），
+     * 自旋节点是否成功获取共享资源（即 state=1），如果三个条件都成立则自旋节点设置为头节点，
+     * 如果不成立则把自旋节点的线程挂起，等待被前驱节点唤醒。
+     *
      */
 
     synchronized void doSomething(){
@@ -154,4 +176,24 @@ public class JavaLock {
     Integer integer = new Integer(13);
 
     private static Vector<Integer> vector = new Vector<>();
+
+    public static void main(String[] args) {
+        Object o = new Object();
+        System.out.println(ClassLayout.parseInstance(o).toPrintable());
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    TimeUnit.SECONDS.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
+        Object o1 = new Object();
+        synchronized (o1.getClass()){
+            System.out.println(ClassLayout.parseInstance(o1).toPrintable());
+        }
+    }
 }

@@ -9,8 +9,8 @@ public class BinarySortTreeClient {
         BSTTools bstTools = new BSTTools();
         // 构建的二叉树没有相同元素
         int[] num = {4,7,2,1,10,6,9,3,8,11,2, 0, -2};
-        for (int i = 0; i < num.length; i++){
-            bstTools.insertNode(num[i]);
+        for (int value : num) {
+            bstTools.insertNode(value);
         }
         bstTools.sort();
         bstTools.delete(4);

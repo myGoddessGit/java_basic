@@ -17,9 +17,9 @@ public class SparseArr {
         chessArr[2][3] = 2;
         //输出原始的二维数组
         System.out.println("原始的二维数组: ");
-        for (int i = 0; i < chessArr.length; i++) {
-            for (int j = 0; j < chessArr[i].length; j++) {
-                System.out.print(chessArr[i][j]+"\t");
+        for (int[] value : chessArr) {
+            for (int i : value) {
+                System.out.print(i + "\t");
             }
             System.out.println();
         }
@@ -54,8 +54,8 @@ public class SparseArr {
         //输出稀疏数组
         System.out.println();
         System.out.println("稀疏数组: ");
-        for (int i = 0; i < sparseArr.length; i++) {
-            System.out.println(sparseArr[i][0] + "\t"+ sparseArr[i][1] + "\t" + sparseArr[i][2]);
+        for (int[] ints : sparseArr) {
+            System.out.println(ints[0] + "\t" + ints[1] + "\t" + ints[2]);
         }
         /**
          * 将稀疏数组恢复成二维数组

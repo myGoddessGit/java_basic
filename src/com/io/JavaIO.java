@@ -1,8 +1,21 @@
 package com.io;
 
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONException;
+import com.alibaba.fastjson.JSONObject;
+import com.google.common.collect.*;
+import com.sun.org.apache.regexp.internal.RE;
+import okhttp3.*;
+
 import java.io.BufferedInputStream;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+import java.util.Set;
+import java.util.concurrent.CountDownLatch;
 
 /**
  * Author by MyGoddess on 2020/10/28
@@ -92,7 +105,108 @@ public class JavaIO {
      *        字符流在操作时是使用了缓冲区 通过缓冲区再操作文件
      */
 
-    public static void main(String[] args) {
-        System.out.println(~(-9));
+    public static void main(String[] args) throws IOException {
+        final CountDownLatch countDownLatch = new CountDownLatch(1);
+        MediaType JSON = MediaType.parse("application/json; charset=utf-8");
+        JSONObject json = new JSONObject();
+        try {
+            JSONArray jsonArray = new JSONArray();
+            for (int i = 0; i < 5 ;i++){
+                JSONObject jsonObject = new JSONObject();
+                jsonObject.put("name", "theShy");
+                jsonObject.put("email", "128399@qq.com");
+                jsonArray.add(jsonObject);
+            }
+            json.put("users", jsonArray);
+        } catch (JSONException e) {
+            System.out.println("异常1");
+            e.printStackTrace();
+        }
+        //1 . 拿到OkHttpClient对象
+        OkHttpClient client = new OkHttpClient();
+        //创建一个RequestBody(参数1：数据类型 参数2传递的json串)
+        RequestBody requestBody = RequestBody.create(JSON, String.valueOf(json));
+        //3 . 构建Request,将FormBody作为Post方法的参数传入
+        Request request = new Request.Builder()
+                .url("http://localhost:8080/test/addUser")
+                .post(requestBody)
+                .build();
+        Call call = client.newCall(request);
+        final String[] str = {null};
+//        try {
+////            Response response = client.newCall(request).execute();
+////            returnSome = response.body().string();
+////        } catch (IOException e) {
+////            System.out.println("异常2");
+////        }
+
+        final Response[] response1 = {null};
+        call.enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                System.out.println("请求失败");
+            }
+            @Override
+            public void onResponse(Call call, Response response) {
+                response1[0] = response;
+                countDownLatch.countDown();
+            }
+        });
+        System.out.println("等待请求成功");
+        try {
+            countDownLatch.await();
+            System.out.println("请求成功！！！");
+        } catch (InterruptedException e){
+            e.printStackTrace();
+        }
+        if (response1[0] == null){
+            System.out.println("没有返回结果");
+            return;
+        }
+        str[0] = response1[0].body().string();
+        JSONArray jsonArray = JSONArray.parseArray(str[0]);
+        if (jsonArray == null || jsonArray.size() <= 0){
+            System.out.println("请求返回参数为空");
+            return;
+        }
+        for (Object o : jsonArray){
+            System.out.println(o);
+        }
+    }
+
+    static void guavaTest(){
+
+    }
+
+    static void stringTest(){
+
+    }
+
+    static void test(){
+        A a = new A();
+        a.setName("aaa");
+        A b = new A();
+        b.setName("aaa");
+        boolean test = Objects.equals(a, b);
+        System.out.println(test);
+    }
+
+    static class A {
+        private String name;
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        @Override
+        public String toString() {
+            return "A{" +
+                    "name='" + name + '\'' +
+                    '}';
+        }
     }
 }
